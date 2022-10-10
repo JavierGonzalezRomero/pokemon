@@ -1,0 +1,176 @@
+.header_box {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  color: yellow;
+  background-color: red;
+}
+
+* {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.body_box {
+  height: 2000px;
+  background-color: yellow;
+  margin-left: 7%;
+  margin-right: 7%;
+}
+
+.body_box_control {
+  height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.body_box_control-img {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  width: 40%;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.img-pokedex {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
+
+.body_box_control-botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  font-size: 50px;
+  width: 60%;
+  justify-content: space-around;
+}
+
+.body_box_control-botones_bttBusqueda {
+  font-size: 85%;
+}
+
+.body_box_control-botones_input {
+  width: 50%;
+  height: 50px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: yellow;
+}
+
+.carta {
+  width: 300px;
+  height: 400px;
+  background-color: aliceblue;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  background-color: burlywood;
+  font-size: 30px;
+}
+
+.carta_nombreImg {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fotopokemon {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+}
+
+.centrado {
+  display: flex;
+  justify-content: center;
+}
+
+.idTipo {
+  display: flex;
+  height: 78px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.borde {
+  border: solid;
+}
+
+.grass {
+  background-color: green;
+}
+
+.normal {
+  background-color: coral;
+}
+
+.fire {
+  background-color: red;
+}
+
+.flying {
+  background-color: aquamarine;
+}
+
+.ice {
+  background-color: blue;
+}
+
+.water {
+  background-color: cadetblue;
+}
+
+.psychic {
+  background-color: blueviolet;
+}
+
+.poison {
+  background-color: darkmagenta;
+}
+
+.ghost {
+  background-color: black;
+}
+
+.fighting {
+  background-color: darkolivegreen;
+}
+
+.electric {
+  background-color: rgb(161, 161, 33);
+}
+
+.rock {
+  background-color: dimgray;
+}
+
+.ground {
+  background-color: brown;
+}
+
+.bug {
+  background-color: chartreuse;
+}
+
+.dragon {
+  background-color: deeppink;
+}
+
+.fairy {
+  background-color: crimson;
+}/*# sourceMappingURL=style.css.map */
