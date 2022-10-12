@@ -1,5 +1,8 @@
+let count = 0;
 let init = async () => {
     const allPokemon = await getAllPokemon() 
+
+    
     
 
     let pokemonDefinitiva = []
@@ -10,11 +13,25 @@ let init = async () => {
         const pokemonData = await getPokemonData(url);
         pokemonDefinitiva.push(pokemonData)
    }
+   
     const mappedPokemon = mapPokemon(pokemonDefinitiva) 
     drawPokemon(mappedPokemon) 
     let buttons$$ =document.querySelector("button");
     let input$$ = document.querySelector("input");
     buttons$$.addEventListener("click",() => searchPokemons(input$$.value,mappedPokemon))
+
+    let img$$ = document.querySelector(".img-pokedex")
+   
+    
+      
+    
+        img$$.addEventListener ("click",() => drawPokemon(mappedPokemon))
+        
+    
+     
+    
+
+    
 }
 
 const mapPokemon = (pokemonData) => {
@@ -33,7 +50,7 @@ const getAllPokemon = async ()=> {
 
     const allPokemonResponse = await fetch ('https://pokeapi.co/api/v2/pokemon/?limit=151')
     const allPokemonJson = await allPokemonResponse.json();
-    debugger
+    //debugger
     return allPokemonJson.results;
 }
 
@@ -44,38 +61,53 @@ const getPokemonData  = async (url) =>{
 }
 
 const drawPokemon = (pokemons) => {
-    let galeria$$ = document.querySelector(".container");
-    galeria$$.innerHTML = "";   
+    console.log(count)
     
-   for(const pokemon of pokemons){
-        const tipo2 = pokemon.tipo2 ? `/${pokemon.tipo2}`:""
-        let carta = document.createElement ("div")
-        carta.innerHTML =`<div class="carta_nombreImg">
-        <div class="centrado" id="aquiNombre">
-          ${pokemon.name}  
+    let galeria$$ = document.querySelector(".container");
+    galeria$$.innerHTML = "";  
+    if(count == 0){
+        for(const pokemon of pokemons){
+            const tipo2 = pokemon.tipo2 ? `/${pokemon.tipo2}`:""
+            let carta = document.createElement ("div")
+            carta.innerHTML =`<div class="carta_nombreImg">
+            <div class="centrado" id="aquiNombre">
+              ${pokemon.name}  
+            </div>
+            <div>
+                <img  class="fotopokemon ${pokemon.tipo1}" src="${pokemon.img}" alt="">
+            </div>
         </div>
-        <div>
-            <img  class="fotopokemon ${pokemon.tipo1}" src="${pokemon.img}" alt="">
-        </div>
-    </div>
-    <div >
-        <ol class="idTipo" id="pokedex">
-            <li id = "aquiId"> id: ${pokemon.id} </li>
-            <li id = "aquiTipo">${pokemon.tipo1}${tipo2} </li>
-        </ol>
-    </div>`
-    carta.className = "carta"
-    galeria$$.appendChild(carta)
+        <div >
+            <ol class="idTipo" id="pokedex">
+                <li id = "aquiId"> id: ${pokemon.id} </li>
+                <li id = "aquiTipo">${pokemon.tipo1}${tipo2} </li>
+            </ol>
+        </div>`
+        carta.className = "carta"
+        galeria$$.appendChild(carta)
+     
+        
+        
+    
+    
+        }
+        count = 1
 
+    }else{
+        count = 0;
+                
 
     }
+    
+   
 }
 
 
 
 const searchPokemons = (busqueda,mappedPokemons) => {
-    const filteredPokemon = mappedPokemons.filter((mappedPokemon) =>mappedPokemon.name.toLowerCase().includes(busqueda.toLowerCase()) || mappedPokemon.tipo1.toLowerCase() == busqueda.toLowerCase());
+    const filteredPokemon = mappedPokemons.filter((mappedPokemon) =>mappedPokemon.name.toLowerCase().includes(busqueda.toLowerCase()) || mappedPokemon.tipo1.toLowerCase() == busqueda.toLowerCase() || mappedPokemon.tipo2?.toLowerCase() == busqueda.toLowerCase());
     drawPokemon(filteredPokemon)
+    
 }
 
 
